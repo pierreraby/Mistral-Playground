@@ -129,7 +129,7 @@ document.getElementById("send").onclick = async () => {
   const messages = getMessages();
   const settings = getSettings();
   settings.messages = messages;
-  console.log(settings);
+  // console.log(settings);
 
   const textAreaElem = insertMessage("assistant");
   textAreaElem.blur();
