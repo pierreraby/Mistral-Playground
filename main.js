@@ -198,7 +198,6 @@ function getNextRole() {
   const messagesElem = document.querySelectorAll(".message");
   const lastMessageElem = messagesElem[messagesElem.length - 1];
   const lastMessageRole = lastMessageElem.querySelector(".role span").textContent;
-  console.log(lastMessageRole);
   return lastMessageRole === "user" ? "assistant" : "user";
 }
 
