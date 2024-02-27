@@ -195,9 +195,11 @@ function getMessages() {
 }
 
 function getNextRole() {
-  const messages = getMessages();
-  const lastMessage = messages[messages.length - 1];
-  return lastMessage.role === "user" ? "assistant" : "user";
+  const messagesElem = document.querySelectorAll(".message");
+  const lastMessageElem = messagesElem[messagesElem.length - 1];
+  const lastMessageRole = lastMessageElem.querySelector(".role span").textContent;
+  console.log(lastMessageRole);
+  return lastMessageRole === "user" ? "assistant" : "user";
 }
 
 function removeMessage(event) {
