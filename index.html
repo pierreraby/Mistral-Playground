@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mistral AI</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <header>
+        <img src="/logo_256x82.webp" alt="">
+        <h1>Mistral Playground</h1>
+        <div class="keyForm">
+          <label for="apiKey">API key :</label>
+          <input type="text" id="apiKey" placeholder="Your API Key">
+        </div>
+      </header>
+      <main>
+        <aside class="settings">     
+          <label for="model">Model :</label>
+          <select name="model" id="model" class="settingsInputs">
+          </select>
+          <div class="rangeHeader">
+            <label for="temperature">Temperature :</label>
+            <input type="text" id="temperature" value="0.7" class="numSettings">
+          </div>
+          <input type="range" id="slide_temp" min="0" max="1" value="0.7" step="0.01">
+          <div class="rangeHeader">
+            <label for="top_p">Top P :</label>
+            <input type="text" id="top_p" value="1" class="numSettings">
+          </div>
+          <input type="range" id="slide_top_p" min="0" max="1" value="1" step="0.01">
+          <div class="rangeHeader">
+            <label for="max_tokens">Max tokens :</label>
+            <input type="text" id="max_tokens" value="" class="numSettings">
+          </div>
+          <input type="range" id="slide_max_tok" min="0" max="1" value="0" step="1">
+          <div class="checkbox">
+            <label for="safe_prompt">Safe prompt :</label>
+            <input type="checkbox" id="safe_prompt">
+          </div>
+          <label for="random_seed">random_seed :</label>
+          <input type="text" id="random_seed" class="settingsInputs">
+        </aside>
+        <section class="thread">
+          <div class="addMessage">
+            <svg class="icon">
+              <use href="/icons.svg#plus-circle"/>
+            </svg>
+            <span>Add message</span>
+          </div>
+        </section>
+      </main>
+      <button id="send">Submit</button>
+      <div id="error"></div>
+  </div>
+  <script type="module" src="/main.js"></script>
+  </body>
+</html>
