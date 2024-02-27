@@ -151,7 +151,7 @@ document.getElementById("send").onclick = async () => {
   }
 }
 
-addMessage.onclick = (event) => insertMessage();
+addMessage.onclick = () => insertMessage();
 
 function insertMessage(role = getNextRole()) {
   const {messageElem, textAreaElem} = getMessageNode(role);
@@ -255,7 +255,8 @@ function getMessageNode(role) {
   return {messageElem, textAreaElem};
 }
 
-// initialize with a default values
+/************** Main, initialize with a default values **************/
+
 insertMessage("user");
 await addModels();
 initMaxTokens();
