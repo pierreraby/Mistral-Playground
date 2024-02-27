@@ -234,7 +234,7 @@ function getMessageNode(role) {
   textAreaElem.classList.add("text");
   textAreaElem.name = "message";
   textAreaElem.rows = 1;
-  textAreaElem.placeholder = "Enter your question";
+  textAreaElem.placeholder = "Enter your prompt here...";
   textAreaElem.oninput = textAreaAutoHeight;
   textAreaElem.spellcheck = false;
 
