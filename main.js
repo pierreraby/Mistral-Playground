@@ -41,7 +41,7 @@ async function addModels() {
   });
 }
 
-select.onchange = (event) => {
+select.onchange = () => {
   initMaxTokens();
   // workaround for lower track color for chrome like browsers
   const ratio = 100 * slideMaxTok.value / slideMaxTok.max;
@@ -49,7 +49,7 @@ select.onchange = (event) => {
 };
 
 // slider for temperature and input sync
-slideTemp.oninput = (event) => {
+slideTemp.oninput = () => {
   temperature.value = slideTemp.value;
   // workaround for lower track color for chrome like browsers
   const ratio = 100 * slideTemp.value / slideTemp.max;

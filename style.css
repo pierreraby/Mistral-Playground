@@ -2,23 +2,19 @@
 
 :root {
   --color-primary: #fd6f00;
-  --color-primary-dark: #ec5500;
-  --color-primary-light: #f3aa00;
-  --color-secondary: #95a;
-  --color-secondary-dark: #7a7a7a;
-  --color-secondary-light: #b5b5b5;
+  --color-primary-darker: #ec5500;
+  --color-primary-dark: #aa440a;
+  --color-primary-light: rgba(243, 170, 0, 0.27);
   --color-grey: #ccc;
   --color-text: #4a4a4a;
-  --color-text-dark: #363636;
-  --color-text-light: #7a7a7a;
-  --color-text-lighter: #b5b5b5;
   --color-text-lightest: #fff;
-  --color-bg: rgba(243, 170, 0, 0.27);
+  --color-main-bg: #fff;
 
   --sx-temp: 70%;
   --sx-top-p: 100%;
   --sx-max-tok: 0%;
 }
+
 html {
   font-family: 'Nunito Sans', sans-serif;
   line-height: 1.5;
@@ -52,7 +48,7 @@ header {
   align-items: center;
 
   label {
-    color: var(--color-primary-dark);
+    color: var(--color-primary-darker);
     font-size: 24px;
     font-weight: 700;
     padding-right: 20px;
@@ -70,7 +66,7 @@ header {
 }
 
 h1 {
-  color: var(--color-primary-dark);
+  color: var(--color-primary-darker);
   font-size: 32px;
   font-weight: 600;
   line-height: 1.125;
@@ -112,7 +108,7 @@ main {
   border: 1px solid var(--color-grey);
   font-size: 16px;
   padding: 0 10px;
-  background-color: #fff;
+  background-color: var(--color-main-bg);
 
   &:focus {
     outline: none;
@@ -248,7 +244,6 @@ input[type="checkbox"] {
   width: 100%;
   border-radius: 12px;
   resize: none;
-  /* overflow: auto; */
   overflow: hidden;
   margin-top: 5px;
   padding-top: 13px;
@@ -258,7 +253,7 @@ input[type="checkbox"] {
   font-size: 18px;
   line-height: 22px;
   border: 1px solid var(--color-grey);
-  background-color: #fff;
+  background-color: var(--color-main-bg);
 
   &:not(:focus) {
     border-color: transparent;
@@ -270,7 +265,7 @@ input[type="checkbox"] {
 
   &:focus {
     outline: none;
-    background-color: #fff;
+    background-color: var(--color-main-bg);
     border-color: var(--color-primary);
     cursor: text;
   }
@@ -279,29 +274,29 @@ input[type="checkbox"] {
 .message {
   display: flex;
   padding: 12px 0;
-  border-bottom: 1px solid var(--color-primary-dark);
+  border-bottom: 1px solid var(--color-primary-darker);
 }
 
 /* no more than 2 levels deep of nesting */
 .message:hover {
-  background-color: var(--color-bg);
+  background-color: var(--color-primary-light);
 
   .text {
     background-color: transparent;
   }
 
   .text:focus {
-    background-color: #fff;
+    background-color: var(--color-main-bg);
   }
 
   .role span {
     padding: 5px 8px;
     border-radius: 8px;
     background-color: var(--color-primary);
-    color: #fff;
+    color: var(--color-text-lightest);
 
     &:hover {
-      background-color: var(--color-primary-dark);
+      background-color: var(--color-primary-darker);
       cursor: pointer;
     }
   }
@@ -327,7 +322,7 @@ input[type="checkbox"] {
 
   &:hover {
     cursor: pointer;
-    background-color: var(--color-bg);
+    background-color: var(--color-primary-light);
   }
 
   svg {
@@ -356,8 +351,7 @@ input[type="checkbox"] {
 .icon {
   width: 24px;
   height: 24px;
-  /* margin: 0px 20px; */
-  stroke: var(--color-primary-dark);
+  stroke: var(--color-primary-darker);
   stroke-width: 2px;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -372,12 +366,12 @@ button {
   font-size: 16px;
   border: 0;
   background: var(--color-primary);
-  color: #fff;
-  text-shadow: 0 0 2px #aa440a;
+  color: var(--color-text-lightest);
+  text-shadow: 0 0 2px var(--color-primary-dark);
 
   &:hover {
     cursor: pointer;
-    background: var(--color-primary-dark);
+    background: var(--color-primary-darker);
   }
 }
 
