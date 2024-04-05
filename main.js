@@ -255,7 +255,7 @@ function getMessageNode(role) {
   return {messageElem, textAreaElem};
 }
 
-/************** Main, initialize with a default values **************/
+/************** Main, initialize with default values **************/
 
 insertMessage("user");
 await addModels();

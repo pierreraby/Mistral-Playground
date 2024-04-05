@@ -120,7 +120,7 @@ main {
   }
 }
 
-/***** Range Sliders and Linked Input*****/
+/***** Range Sliders and Linked Input *****/
 .rangeHeader {
   display: flex;
   justify-content: space-between;
@@ -337,7 +337,7 @@ input[type="checkbox"] {
 }
 
 .removeMessage {
-  width: 60px;
+  min-width: 60px;
   height: 100%;
   margin-top: 16px;
   display: flex;
