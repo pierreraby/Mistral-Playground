@@ -330,6 +330,10 @@ input[type="checkbox"] {
     background-color: var(--color-bg);
   }
 
+  svg {
+    margin: 0 20px;
+  }
+
   span {
     font-size: 16px;
     font-weight: 700;
@@ -352,7 +356,7 @@ input[type="checkbox"] {
 .icon {
   width: 24px;
   height: 24px;
-  margin: 0px 20px;
+  /* margin: 0px 20px; */
   stroke: var(--color-primary-dark);
   stroke-width: 2px;
   stroke-linecap: round;
