@@ -27,6 +27,8 @@ const topP = document.getElementById("top_p"); // for top_p input
 const slideMaxTok = document.getElementById("slide_max_tok"); // for max tokens slider
 const maxTok = document.getElementById("max_tokens"); // for max tokens input
 
+let maxTokens = {};
+
 async function addModels() {
   return client.listModels().then(models => {
     models.data.forEach(model => {
@@ -35,6 +37,8 @@ async function addModels() {
       // option.label = model.id.split("-")[1];
       option.label = model.id;
       select.appendChild(option);
+      // set max_tokens for each model with max_context_length
+      maxTokens[model.id] = model.max_context_length;
     });
   }).catch(error => {
     errorElm.textContent = error;
@@ -97,12 +101,6 @@ maxTok.onchange = () => {
 }
 
 function initMaxTokens() {
-  const maxTokens = {"mistral-tiny": 8000, "open-mistral-7b" : 8000, " mistral-tiny-2312": 8000,
-                     "open-mixtral-8x7b": 32000, "mistral-small-2312": 32000,
-                     "mistral-small": 32000, "mistral-small-2402" : 32000, "mistral-small-latest": 32000,
-                     "mistral-medium-latest": 32000, "mistral-medium-2312": 32000, "mistral-medium": 32000,
-                     "mistral-large-latest": 32000, "mistral-large-2402": 32000,
-                    };
   const model = select.value;
   const slide = document.getElementById("slide_max_tok");
   slide.max = maxTokens[model];
