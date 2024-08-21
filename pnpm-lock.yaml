@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/nunito-sans':
+        specifier: ^5.0.14
+        version: 5.0.14
       '@mistralai/mistralai':
         specifier: 0.5.0
         version: 0.5.0
@@ -155,6 +158,9 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/nunito-sans@5.0.14':
+    resolution: {integrity: sha512-FKGu2XNEhKMH/dHjF9y+Rxxks+A/cZrHGqEgYgCvG+MSwiEaQLu7pn4++bsUvGqKpWPGtK+Kjpl7e6GaBSS50g==}
 
   '@mistralai/mistralai@0.5.0':
     resolution: {integrity: sha512-56xfoC/0CiT0RFHrRNoJYSKCNc922EyHzEPJYY6ttalQ5KZdrNVgXeOetIGX0lDx7IjbxAJrrae2MQgUIlL9+g==}
@@ -392,6 +398,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.5':
     optional: true
+
+  '@fontsource/nunito-sans@5.0.14': {}
 
   '@mistralai/mistralai@0.5.0':
     dependencies:

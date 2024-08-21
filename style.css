@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz@6..12&display=swap');
+@import '@fontsource/nunito-sans';
 
 :root {
   --color-primary: #fd6f00;
