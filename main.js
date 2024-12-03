@@ -1,5 +1,6 @@
 import MistralClient from "@mistralai/mistralai";
 
+/********* Handling API key *********/
 if (!localStorage.getItem("apiKey")) {
   const apiKey = prompt("Please enter your API key");
   localStorage.setItem("apiKey", apiKey);
@@ -29,22 +30,60 @@ const maxTok = document.getElementById("max_tokens"); // for max tokens input
 
 let maxTokens = {};
 
+// async function addModels() {
+//   return client.listModels().then(models => {
+//     models.data.forEach(model => {
+//       let option = document.createElement("option");
+//       option.value = model.id;
+//       // option.label = model.id.split("-")[1];
+//       option.label = model.id;
+    
+//       select.appendChild(option);
+//       // set max_tokens for each model with max_context_length
+//       maxTokens[model.id] = model.max_context_length;
+//     });
+//   }).catch(error => {
+//     errorElm.textContent = error;
+//   });
+// }
+
 async function addModels() {
-  return client.listModels().then(models => {
+  try {
+    const models = await client.listModels();
+    const latestGroup = document.getElementById('latest-group');
+    const otherGroup = document.getElementById('other-group');
+
     models.data.forEach(model => {
-      let option = document.createElement("option");
+      const option = document.createElement("option");
       option.value = model.id;
-      // option.label = model.id.split("-")[1];
-      option.label = model.id;
-      select.appendChild(option);
-      // set max_tokens for each model with max_context_length
+      option.label = model.id; // Customize as needed
+
+      // Define your criteria for categorizing models
+      // Example Criteria: Models with 'latest' in their ID
+      if (model.id.toLowerCase().includes('latest')) {
+        latestGroup.appendChild(option);
+      } else {
+        otherGroup.appendChild(option);
+      }
+
+      // Set max_tokens for each model with max_context_length
       maxTokens[model.id] = model.max_context_length;
     });
-  }).catch(error => {
+
+    // Optionally, select the first model by default
+    if (latestGroup.options.length > 0) {
+      select.value = latestGroup.options[0].value;
+      initMaxTokens();
+    } else if (otherGroup.options.length > 0) {
+      select.value = otherGroup.options[0].value;
+      initMaxTokens();
+    }
+  } catch (error) {
     errorElm.textContent = error;
-  });
+  }
 }
 
+// model selection and max tokens sync
 select.onchange = () => {
   initMaxTokens();
   // workaround for lower track color for chrome like browsers
