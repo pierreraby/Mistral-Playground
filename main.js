@@ -30,23 +30,6 @@ const maxTok = document.getElementById("max_tokens"); // for max tokens input
 
 let maxTokens = {};
 
-// async function addModels() {
-//   return client.listModels().then(models => {
-//     models.data.forEach(model => {
-//       let option = document.createElement("option");
-//       option.value = model.id;
-//       // option.label = model.id.split("-")[1];
-//       option.label = model.id;
-    
-//       select.appendChild(option);
-//       // set max_tokens for each model with max_context_length
-//       maxTokens[model.id] = model.max_context_length;
-//     });
-//   }).catch(error => {
-//     errorElm.textContent = error;
-//   });
-// }
-
 async function addModels() {
   try {
     const models = await client.listModels();
@@ -70,14 +53,11 @@ async function addModels() {
       maxTokens[model.id] = model.max_context_length;
     });
 
-    // Optionally, select the first model by default
-    if (latestGroup.options.length > 0) {
-      select.value = latestGroup.options[0].value;
-      initMaxTokens();
-    } else if (otherGroup.options.length > 0) {
-      select.value = otherGroup.options[0].value;
-      initMaxTokens();
+    // Select the mistral large latest model by default
+    if(model.id = 'mistral-large-latest') {
+      select.value = 'mistral-large-latest';
     }
+
   } catch (error) {
     errorElm.textContent = error;
   }
