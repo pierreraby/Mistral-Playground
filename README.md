@@ -1,4 +1,4 @@
-# Mistral AI Payground
+# Mistral AI Playground
 
 My 2 cents Mistral AI playground in plain javascript using Mistral clientJS first version.
 Deliberately naive for simplicity's sake, but functional.  
